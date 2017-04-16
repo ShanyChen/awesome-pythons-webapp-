@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>audio</title>	
+</head>
+<body>
+ <div 
+   style= "background:black;height:400px;"
+   
+ 	tabindex="1"
+ 	onkeydown = "setNote(event.key)"
+ >
+  ss
+ </div>
+<script>
+    try{
+	var audio_context = window.AudioContext || 
+	window.webkitAudioContext;
+    }catch(e){
+    	console.log('your browser does not support AudioContext')
+    }
+	var con = new audio_context();
+	var osc = con.createOscillator();
+
+	osc.connect(con.destination);
+    osc.frequency.value = 50;
+	//osc.start();
+
+
+	function setNote(key){
+		if(key=="z"){
+			osc.frequency.value = 261.63;
+		}
+		if(key=="x"){
+			osc.frequency.value = 293.66;
+		}
+		if(key=="c"){
+			osc.frequency.value = 329.63;
+		}
+		if(key=="v"){
+			osc.frequency.value = 349.23;
+		}
+		
+	}
+</script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+  
+
+
+
